@@ -1,6 +1,6 @@
 # Ciao, sono SatoSats 👋
 
-Da circa tre anni dedico ogni giorno tempo allo studio, alla pratica e all’approfondimento di **Bitcoin**.
+Dal 2023 dedico ogni giorno tempo allo studio, alla pratica e all’approfondimento di **Bitcoin**.
 
 In questo percorso ho imparato molto, spesso anche attraverso errori, tentativi e piccole conquiste. Con il tempo ho sentito sempre più forte il bisogno di condividere ciò che stavo imparando e di aiutare chi desidera avvicinarsi a questo mondo con maggiore consapevolezza.
 
@@ -46,6 +46,12 @@ Il progetto nasce con l’obiettivo di rendere la generazione della seed più tr
 - **Nostr / Primal:** `npub10mw4vdhyru8ejj28kv7vm4f7a62mrj9w3ag8j4pa4sl025fa2s4qyzxlk9`
 - **Delta Chat:** [Contattami su Delta Chat](https://i.delta.chat/#38824F04DD40600D5D4F079C1F5E0EBA875A6D7E&v=3&i=GStGfNW5LMIXhwQMiuQWj3QU&s=_pITUzycSBF7U2eoClwy42MP&a=9l4la5imj%40nine.testrun.org&n=SatoSats+%7C+CEO+BitVero)
 - **Telegram:** [@SatoSats21](https://t.me/SatoSats21)
+
+---
+
+## 🔐 Firma GPG
+
+**Fingerprint:** `EA83 1AF9 D252 F9E4 43EE 6A1D ECD3 0979 3F79 E833`
 
 ---
 

@@ -23,6 +23,7 @@ Cerco di spiegare i concetti in modo semplice, condividere ciò che imparo e aiu
 - **Community Telegram:** [BitVero](https://t.me/Bitvero)
 - **Telegram ufficiale:** [@Bitver0](https://t.me/Bitver0)
 - **Sito ufficiale:** [www.bitvero.it](https://www.bitvero.it)
+- **Manifesto ufficiale:** [PDF · versione 1.0](manifesto/manifesto-bitvero-v1.0.pdf) · [Firma GPG detached](manifesto/manifesto-bitvero-v1.0.pdf.asc)
 - **YouTube:** [BitVero BTC](https://youtube.com/@bitverobtc?si=hUp-mEclymE9C3yV)
 - **TikTok:** [@bitver0](https://www.tiktok.com/@bitver0?_r=1&_t=ZN-99Rw3Pt9nZG)
 - **X:** [@bitver0](https://x.com/bitver0?s=11)

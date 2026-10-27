@@ -1,0 +1,105 @@
+BITVERO — ISTRUZIONI PER VERIFICARE LA FIRMA GPG
+Versione 1.0 del manifesto — 27 ottobre 2026
+
+La firma GPG è detached: il PDF e il file .asc sono separati. Per verificare che il PDF corrisponda a quello firmato servono entrambi, insieme alla chiave pubblica di SatoSats.
+
+FILE DA SCARICARE
+- manifesto-bitvero-v1.0.pdf         Il manifesto
+- manifesto-bitvero-v1.0.pdf.asc     La firma GPG detached
+- satosats-public-key.asc            La chiave pubblica
+
+PERCORSO UFFICIALE
+https://github.com/SatoSats/SatoSats/tree/master/manifesto
+
+IMPRONTA DELLA CHIAVE DI SATOSATS
+EA83 1AF9 D252 F9E4 43EE 6A1D ECD3 0979 3F79 E833
+
+Prima di importare la chiave, controlla che il comando di visualizzazione mostri esattamente questa impronta. La verifica crittografica dimostra che il PDF corrisponde alla firma; il confronto dell’impronta serve a controllare che la chiave sia proprio quella di SatoSats.
+
+============================================================
+LINUX (Ubuntu, Linux Mint e distribuzioni simili)
+============================================================
+
+1. Apri il Terminale. Crea una cartella di lavoro e spostati al suo interno:
+
+   mkdir -p ~/Verifica-Manifesto-BitVero
+   cd ~/Verifica-Manifesto-BitVero
+
+2. Scarica PDF, firma e chiave pubblica dai file del repository GitHub:
+
+   base='https://raw.githubusercontent.com/SatoSats/SatoSats/master/manifesto'
+   curl -fL "$base/manifesto-bitvero-v1.0.pdf" -o manifesto-bitvero-v1.0.pdf
+   curl -fL "$base/manifesto-bitvero-v1.0.pdf.asc" -o manifesto-bitvero-v1.0.pdf.asc
+   curl -fL "$base/satosats-public-key.asc" -o satosats-public-key.asc
+
+3. Mostra l’impronta della chiave pubblica:
+
+   gpg --show-keys --with-fingerprint satosats-public-key.asc
+
+Confronta l’impronta mostrata con quella riportata sopra. Se non coincide, fermati e non fidarti della verifica.
+
+4. Importa la chiave pubblica nel portachiavi GPG dell’utente:
+
+   gpg --import satosats-public-key.asc
+
+5. Verifica la firma. Indica prima il file .asc e poi il PDF:
+
+   gpg --verify manifesto-bitvero-v1.0.pdf.asc manifesto-bitvero-v1.0.pdf
+
+Esito atteso: una riga simile a “Good signature from SatoSats”. Se appare “BAD signature”, la verifica è fallita: non considerare autentico il PDF. Se appare “No public key”, controlla che la chiave sia stata importata.
+
+Se il comando gpg non è disponibile su Ubuntu o Linux Mint, installa gli strumenti necessari con:
+
+   sudo apt update
+   sudo apt install gnupg curl
+
+============================================================
+WINDOWS (PowerShell)
+============================================================
+
+1. Installa Gpg4win dal sito ufficiale:
+
+   https://www.gpg4win.org/download.html
+
+Al termine dell’installazione, apri una nuova finestra di PowerShell e controlla che GnuPG sia disponibile:
+
+   gpg --version
+
+2. Crea una cartella di lavoro e spostati al suo interno:
+
+   New-Item -ItemType Directory -Force "$HOME\Verifica-Manifesto-BitVero" | Out-Null
+   Set-Location "$HOME\Verifica-Manifesto-BitVero"
+
+3. Scarica PDF, firma e chiave pubblica:
+
+   $base = 'https://raw.githubusercontent.com/SatoSats/SatoSats/master/manifesto'
+   Invoke-WebRequest "$base/manifesto-bitvero-v1.0.pdf" -OutFile 'manifesto-bitvero-v1.0.pdf'
+   Invoke-WebRequest "$base/manifesto-bitvero-v1.0.pdf.asc" -OutFile 'manifesto-bitvero-v1.0.pdf.asc'
+   Invoke-WebRequest "$base/satosats-public-key.asc" -OutFile 'satosats-public-key.asc'
+
+4. Mostra l’impronta della chiave pubblica:
+
+   gpg --show-keys --with-fingerprint .\satosats-public-key.asc
+
+Confronta l’impronta mostrata con questa:
+
+   EA83 1AF9 D252 F9E4 43EE 6A1D ECD3 0979 3F79 E833
+
+Se non coincide, fermati e non fidarti della verifica.
+
+5. Importa la chiave pubblica e verifica la firma:
+
+   gpg --import .\satosats-public-key.asc
+   gpg --verify .\manifesto-bitvero-v1.0.pdf.asc .\manifesto-bitvero-v1.0.pdf
+
+Esito atteso: una riga simile a “Good signature from SatoSats”. Se appare “BAD signature”, la verifica è fallita: non considerare autentico il PDF. Se appare “No public key”, controlla che la chiave sia stata importata.
+
+============================================================
+COME INTERPRETARE IL RISULTATO
+============================================================
+
+- “Good signature” indica che il PDF non è stato modificato rispetto a quello firmato con la chiave corrispondente.
+- Prima di fidarti dell’identità del firmatario, verifica che l’impronta della chiave pubblica corrisponda esattamente a quella indicata in questo documento e nel profilo GitHub di SatoSats.
+- “BAD signature” indica che il PDF non corrisponde alla firma. Non considerarlo verificato.
+- “No public key” indica che GPG non trova la chiave pubblica necessaria. Importa il file satosats-public-key.asc e ripeti il comando.
+- Tieni PDF, firma e chiave pubblica originali. Se il PDF viene modificato o risalvato, la firma non corrisponderà più.
